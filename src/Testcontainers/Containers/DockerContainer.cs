@@ -408,8 +408,11 @@ namespace DotNet.Testcontainers.Containers
 
       foreach (var waitStrategy in _configuration.WaitStrategies)
       {
-        await WaitStrategy.WaitUntilAsync(() => CheckWaitStrategyAsync(waitStrategy), TimeSpan.FromSeconds(1), Timeout.InfiniteTimeSpan, ct)
+        await CheckWaitStrategyAsync(waitStrategy)
           .ConfigureAwait(false);
+
+        // await WaitStrategy.WaitUntilAsync(() => CheckWaitStrategyAsync(waitStrategy), TimeSpan.FromSeconds(1), Timeout.InfiniteTimeSpan, ct)
+        //   .ConfigureAwait(false);
       }
 
       Started?.Invoke(this, EventArgs.Empty);

@@ -18,6 +18,9 @@ namespace DotNet.Testcontainers.Configurations
       _waitStrategies.Add(new UntilContainerIsRunning());
     }
 
+    // TODO: Action<IWaitStrategyOption> needs to be optional (providing a default value).
+    public abstract IWaitForContainerOS UntilCommandIsCompleted(string command, Action<IWaitStrategyOption> option);
+
     /// <inheritdoc />
     public abstract IWaitForContainerOS UntilCommandIsCompleted(string command);
 

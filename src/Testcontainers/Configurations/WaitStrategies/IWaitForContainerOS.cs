@@ -21,6 +21,8 @@ namespace DotNet.Testcontainers.Configurations
     [PublicAPI]
     IWaitForContainerOS AddCustomWaitStrategy(IWaitUntil waitStrategy);
 
+    IWaitForContainerOS UntilCommandIsCompleted(string command, Action<IWaitStrategyOption> option);
+
     /// <summary>
     /// Waits until the command is completed successfully.
     /// </summary>
